@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0; 
+  overflow: hidden;
+  
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    font-family: "Inter";
+  }
+
+
+.app {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+
+.menu-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: transparent;
+    color: #333;
+    border: none;
+    padding: 10px 10px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: left 0.3s ease; 
+  }
+  .menu-toggle.open {
+    left: 260px; 
+    background-color: transparent;
+    color: #333;
+    border: none;
+
+    
+  }
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; 
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: left 0.3s ease;  
+    z-index: 999;
+    padding-top: 60px;
+  }
+
+.side-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-menu li {
+  padding: 15px;
+  text-align: center;
+}
+
+
+
+
+.side-menu.open {
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+
+
+
+  .side-menu.open input {
+    position: absolute;
+    width: 80%;               
+    top:5%;
+    left: 50%;               
+    transform: translateX(-50%);    
+    padding: 10px;
+    border: none;            
+    font-size: 16px;          
+    border: 1px solid #ccc;  
+    border-radius: 5px;       
+  }
+ 
+  .moviesList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 20px; 
+    overflow-y: auto;
+  }
+  
+  .moviesList img {
+    width: 80%;
+    border-radius: 8px;
+    cursor: default;
+  }
+
+  .moviesList img:hover{
+    cursor: pointer;
+  }
+
+  
+  .moviesList li {
+    text-align: center;
+    list-style: none;
+  }
+  
+  .moviesList h3 {
+    color: #e4e4e4;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    cursor: default;
+  }
+
+  .moviesList h3:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; 
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  background-color: #e4e4e4;
+  overflow-y: auto;
+  flex-grow: 1;
+  height: 100%;
+
+  }
+  
+  .content.menu-open {
+    margin-left: 250px;
+  }
+
+
+ 

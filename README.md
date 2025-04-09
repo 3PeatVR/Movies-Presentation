@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# 🎬 Movies Presentation 🎬
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![imagedusite](./swappy-20250409-172307.png)
 
-## Available Scripts
+## Sommaire
 
-In the project directory, you can run:
+- [Introduction](#introduction)
 
-### `npm start`
+- [Déploiement](#déploiement)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Introduction
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Ce projet a été réalisé dans le cadre du processus de recrutement de l'entreprise [Fleet](https://fleet.co/), et utilise [l'API de TMDB](https://developer.themoviedb.org/docs/getting-started). Le projet a été réalisé en React. 
 
-### `npm test`
+Le but de l'exercice était d'implémenter l'API de TMDB pour réaliser une interface contenant une recherche de film dans un menu à gauche et capable d'afficher le poster et les caractéristiques du film à droite. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Déploiement
 
-### `npm run build`
+### Obtention de la clé API
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Allez sur [le site de TMDB](https://www.themoviedb.org/) et générez une clé API et un request token. Puis faites : 
+```bash
+cp .env_template .env
+```
+et copiez le request token à la place de `xxx`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Il y a 2 méthodes pour déployer l'interface localement :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Via npm
 
-### `npm run eject`
+Pour déployer le site directement avec npm faites :
+```bash
+npm install
+npm start
+```
+et l'interface va apparaître dans votre navigateur.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Via Docker
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Sinon vous pouvez déployer le site directement avec Docker si vous voulez éviter les problèmes de dépendances. Faites :
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+sudo docker build . -t movies
+sudo docker run -p 8080:3000 movies
+```
+Et le site sera présent à l'adresse `http://localhost:8080` .
